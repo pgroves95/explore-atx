@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Daycation ATX</title>
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row" style="margin-top: 5%;">
+      <div class="offset-by-two eight columns">
+        <h2><strong>Daycation ATX</strong></h2>
+        <p style="text-align: center;">
+          <strong>Howdy! Welcome to Austin.</strong>
+        </p>
+        <p>
+          Ideally you have a full day to yourself
+          to explore the city. That's what I was made for. Simply 
+          provide a few preferences below, and I'll generate a possible
+          itenerary for your daycation.
+        </p>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 10%;">
+      <!--inline label/checkbox solution (table?)-->
+      <div class="three columns">
+        <h4>Morning</h4>
+        <label for="m-food">Breakfast</label>
+        <input type="checkbox" name="m-food" class="checks" id="m-food"><br>
+        <label for="m-scenic">Scenic</label>
+        <input type="checkbox" name="m-scenic" class="checks" id="m-scenic"><br>
+        <label for="m-culture">Culture</label>
+        <input type="checkbox" name="m-culture" class="checks" id="m-culture">
+      </div>
+      <div class="three columns">
+        <h4>Afternoon</h4>
+        <label for="a-food">Lunch</label>
+        <input type="checkbox" name="a-food" class="checks" id="a-food"><br>
+        <label for="a-scenic">Scenic</label>
+        <input type="checkbox" name="a-scenic" class="checks" id="a-scenic"><br>
+        <label for="a-culture">Culture</label>
+        <input type="checkbox" name="a-culture" class="checks" id="a-culture">
+      </div>
+      <div class="three columns">
+        <h4>Evening</h4>
+        <label for="e-food">Dinner</label>
+        <input type="checkbox" name="e-food" class="checks" id="e-food"><br>
+        <label for="e-scenic">Scenic</label>
+        <input type="checkbox" name="e-scenic" class="checks" id="e-scenic"><br>
+        <label for="e-music">Live Music</label>
+        <input type="checkbox" name="e-music" class="checks" id="e-music">
+      </div>
+      <div class="three columns">
+        <h4>Late Night?</h4>
+        <label for="latenight">You Betcha!</label>
+        <input type="checkbox" name="latenight" class="checks" id="late-night">
+      </div>
+    </div>
+    <div class="row">
+      <div class="offset-by-four two columns" style="margin-top: 6%;">
+      <button id="submit">Create My Daycation</button>
+    </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+<script src="app.js"></script>
+</html>
+
+
