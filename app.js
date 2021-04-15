@@ -59,29 +59,29 @@ submitBtn.addEventListener("click", () =>{
             console.log(result)
             if(result.id === "m"){
                 if(mornBlock[0].innerText.includes("OPEN")){
-                    mornBlock[0].innerText = mornBlock[0].innerText.replace("OPEN", result.json.name)
+                    mornBlock[0].innerText = mornBlock[0].innerText.replace("OPEN", `${result.json.name}, (${result.json.vicinity})`)
                     return;
                 }
                 else if(mornBlock[1].innerText.includes("OPEN") && !mornBlock[0].innerText.includes(result.json.name)){
-                    mornBlock[1].innerText = mornBlock[1].innerText.replace("OPEN", result.json.name)
+                    mornBlock[1].innerText = mornBlock[1].innerText.replace("OPEN", `${result.json.name}, (${result.json.vicinity})`)
                     return;
                 }
                 else return;
             }
             else if(result.id === "a"){
                     if(aftBlock[0].innerText.includes("OPEN")){
-                        aftBlock[0].innerText = aftBlock[0].innerText.replace("OPEN", result.json.name)
+                        aftBlock[0].innerText = aftBlock[0].innerText.replace("OPEN", `${result.json.name}, (${result.json.vicinity})`)
                         return;
                     }
                     else if(aftBlock[1].innerText.includes("OPEN") && !aftBlock[0].innerText.includes(result.json.name)){
-                        aftBlock[1].innerText = aftBlock[1].innerText.replace("OPEN", result.json.name)
+                        aftBlock[1].innerText = aftBlock[1].innerText.replace("OPEN", `${result.json.name}, (${result.json.vicinity})`)
                         return;
                     }
                     else return;
                 }
             else if(result.id === "e"){
                     if(evenBlock[0].innerText.includes("OPEN")){
-                        evenBlock[0].innerText = evenBlock[0].innerText.replace("OPEN", result.json.name)
+                        evenBlock[0].innerText = evenBlock[0].innerText.replace("OPEN", `${result.json.name}, (${result.json.vicinity})`)
                         return;
                     }
                     else if(evenBlock[1].innerText.includes("OPEN") && !evenBlock[0].innerText.includes(result.json.name)){
@@ -91,7 +91,7 @@ submitBtn.addEventListener("click", () =>{
                     else return;
         }
             else {
-                lateBlock.innerText = lateBlock.innerText.replace("OPEN", result.json.name)
+                lateBlock.innerText = lateBlock.innerText.replace("OPEN", `${result.json.name}, (${result.json.vicinity})`)
                         return;
             };
         }), setTimeout(() => schedule.style.display = "flex", 2500))
