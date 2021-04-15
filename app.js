@@ -2,6 +2,11 @@ checks = document.getElementsByClassName("checks")
 submitBtn = document.querySelector("#submit")
 schedule = document.querySelector(".modal-inner")
 schedList = document.querySelector("#sched-list")
+mornBlock = document.getElementsByClassName("m")
+aftBlock = document.getElementsByClassName("a")
+evenBlock = document.getElementsByClassName("e")
+lateBlock = document.querySelector(".l")
+
 
 
 const CALLPATH = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyD4iATDK-gfM5Q_mSWMhrfBjxnval2wzvc"
@@ -50,21 +55,48 @@ submitBtn.addEventListener("click", () =>{
         
     })
     Promise.all(placeResults)
-        .then(results => results.forEach(
-            result => {
-                for(i=0; i<schedList.children.length; i++){
-                    var z = 0;
-                    if(i>0){z = i-1}
-                    console.log(z)
-                    if(result.id === schedList.children[i].className && schedList.children[i].innerText.includes("OPEN") && result.json.name !== schedList.children[z].innerText.slice(schedList.children[z].innerText.indexOf(" ") + 1, schedList.children[z].innerText.length)){
-                        schedList.children[i].innerText = schedList.children[i].innerText.replace("OPEN", result.json.name)
-                        }
+        .then(results => results.forEach( result => {
+            if(result.id === "m"){
+                if(mornBlock[0].innerText.includes("OPEN")){
+                    mornBlock[0].innerText = mornBlock[0].innerText.replace("OPEN", result.json.name)
+                    return;
                 }
+                else if(mornBlock[1].innerText.includes("OPEN") && !mornBlock[0].innerText.includes(result.json.name)){
+                    mornBlock[1].innerText = mornBlock[1].innerText.replace("OPEN", result.json.name)
+                    return;
+                }
+                else return;
             }
-        ),
-        schedule.style.display = "flex"
-        )
-        
+            else if(result.id === "a"){
+                    if(aftBlock[0].innerText.includes("OPEN")){
+                        aftBlock[0].innerText = aftBlock[0].innerText.replace("OPEN", result.json.name)
+                        return;
+                    }
+                    else if(aftBlock[1].innerText.includes("OPEN") && !aftBlock[0].innerText.includes(result.json.name)){
+                        aftBlock[1].innerText = aftBlock[1].innerText.replace("OPEN", result.json.name)
+                        return;
+                    }
+                    else return;
+                }
+            else if(result.id === "e"){
+                    if(evenBlock[0].innerText.includes("OPEN")){
+                        evenBlock[0].innerText = evenBlock[0].innerText.replace("OPEN", result.json.name)
+                        return;
+                    }
+                    else if(evenBlock[1].innerText.includes("OPEN") && !evenBlock[0].innerText.includes(result.json.name)){
+                        evenBlock[1].innerText = evenBlock[1].innerText.replace("OPEN", result.json.name)
+                        return;
+                    }
+                    else return;
+        }
+            else {
+                lateBlock.innerText = lateBlock.innerText.replace("OPEN", result.json.name)
+                        return;
+            };
+        }), setTimeout(() => schedule.style.display = "flex", 2500))
+
+
+
 
     
 })
