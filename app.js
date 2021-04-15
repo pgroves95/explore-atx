@@ -6,6 +6,7 @@ mornBlock = document.getElementsByClassName("m")
 aftBlock = document.getElementsByClassName("a")
 evenBlock = document.getElementsByClassName("e")
 lateBlock = document.querySelector(".l")
+resetBtn = document.querySelector("#reset")
 
 
 
@@ -29,7 +30,16 @@ checks[7].name = CALLPATH + randLLQuery() + "&radius=5000&type=tourist_attractio
 checks[8].name = CALLPATH + randLLQuery() + "&radius=5000&type=bar&keyword=music"
 checks[9].name = CALLPATH + randLLQuery() + "&radius=5000&type=night_club"
 
-let prev = 0;
+
+
+resetBtn.addEventListener("click", () => {
+    for(check of checks){
+        if (check.checked){
+            check.checked = false;
+        }
+    }
+    location.reload()
+})
 
 
 submitBtn.addEventListener("click", () =>{
