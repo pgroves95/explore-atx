@@ -24,6 +24,50 @@
 - Media Queries
 */
 
+ul li {
+  display: inline-block;
+  padding-right: 0.4rem;
+}
+
+.modal-inner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 80vh;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  max-width: 17em;
+  padding: 1em 1.5em;
+  position: relative;
+  margin: 2em;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.35);
+}
+
+.modal-close-icon {
+  position: absolute;
+  right: 1.5em;
+}
+
+.modal-content-inner {
+  padding-right: 2em;
+}
+
+.modal-content-inner li {
+  padding-right: 4em;
+}
+
+.modal-buttons-seperator {
+  margin: 1.5em 0;
+  margin-top: 0;
+}
+
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .container {
@@ -292,9 +336,9 @@ input[type='button'] {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: #8cf;
+  background-color: #5bd;
   border-radius: 4px;
-  border: 1px solid #3ca;
+  border: 1px solid #35f;
   cursor: pointer;
   box-sizing: border-box;
 }

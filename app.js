@@ -1,6 +1,8 @@
 checks = document.getElementsByClassName("checks")
 submitBtn = document.querySelector("#submit")
-console.log(checks)
+schedule = document.querySelector(".modal-inner")
+schedList = document.querySelector("#sched-list")
+
 
 const CALLPATH = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyD4iATDK-gfM5Q_mSWMhrfBjxnval2wzvc"
 function randLLQuery(){
@@ -22,26 +24,47 @@ checks[7].name = CALLPATH + randLLQuery() + "&radius=5000&type=tourist_attractio
 checks[8].name = CALLPATH + randLLQuery() + "&radius=5000&type=bar&keyword=music"
 checks[9].name = CALLPATH + randLLQuery() + "&radius=5000&type=night_club"
 
-
-//feed params to showApi: user input translates to type and keyword queries
-const getPlace= async (query) => {
-    const data = await fetch(query)
-    const json = await data.json()
-    return json.results[0]
-
-}
+let prev = 0;
 
 
-submitBtn.addEventListener("click", async () =>{
+submitBtn.addEventListener("click", () =>{
     checkList = []
     for(check of checks){
         if(check.checked){
-            checkList.push(check.name)
+            checkList.push({
+                id : check.id[0],
+                url : check.name
+            })
         }
     }
 
-    const placePromises = checkList.map(async (url) => await getPlace(url))
-    const placeResults = await Promise.all(placePromises) 
-    console.log(placeResults)
 
+    const placeResults = checkList.map(async (item) => {
+            const placeObj = {}
+            const data = await fetch(item.url)
+            const json = await data.json()
+            const place = await json.results[0]
+            placeObj.id = item.id
+            placeObj.json = await place
+            return placeObj
+        
+    })
+    Promise.all(placeResults)
+        .then(results => results.forEach(
+            result => {
+                for(i=0; i<schedList.children.length; i++){
+                    var z = 0;
+                    if(i>0){z = i-1}
+                    console.log(z)
+                    if(result.id === schedList.children[i].className && schedList.children[i].innerText.includes("OPEN") && result.json.name !== schedList.children[z].innerText.slice(schedList.children[z].innerText.indexOf(" ") + 1, schedList.children[z].innerText.length)){
+                        schedList.children[i].innerText = schedList.children[i].innerText.replace("OPEN", result.json.name)
+                        }
+                }
+            }
+        ),
+        schedule.style.display = "flex"
+        )
+        
+
+    
 })
