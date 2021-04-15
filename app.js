@@ -56,6 +56,7 @@ submitBtn.addEventListener("click", () =>{
     })
     Promise.all(placeResults)
         .then(results => results.forEach( result => {
+            console.log(result)
             if(result.id === "m"){
                 if(mornBlock[0].innerText.includes("OPEN")){
                     mornBlock[0].innerText = mornBlock[0].innerText.replace("OPEN", result.json.name)
@@ -84,7 +85,7 @@ submitBtn.addEventListener("click", () =>{
                         return;
                     }
                     else if(evenBlock[1].innerText.includes("OPEN") && !evenBlock[0].innerText.includes(result.json.name)){
-                        evenBlock[1].innerText = evenBlock[1].innerText.replace("OPEN", result.json.name)
+                        evenBlock[1].innerText = evenBlock[1].innerText.replace("OPEN", `${result.json.name}, (${result.json.vicinity})`)
                         return;
                     }
                     else return;
