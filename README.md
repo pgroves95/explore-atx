@@ -23,7 +23,7 @@ li elements to match with the proper time of day (morning, afternoon, evening, l
 checked to see if it is a duplicate or if the li elements are already occupied by others objects' json data. If the object passes the tests it fills the li's inner HTML with the name of the place and google maps location link based on lat/long
 coordinates.
 
-The conditional logic is a serious limitation in that if three checkboxes in one time category (ex. morning)
+The conditional logic is limited in that if three checkboxes in one time category (ex. morning)
 are all checked, the last option (in this case culture) will always be omitted. Potentially in the future,
 I could randomize the results list order to provide a less predictable outcome for this limitation.
 
