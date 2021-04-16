@@ -61,6 +61,7 @@ submitBtn.addEventListener("click", () =>{
             const place = await json.results[0]
             placeObj.id = item.id
             placeObj.json = await place
+            placeObj.ll = await place.geometry.location
             return placeObj
         
     })
@@ -69,39 +70,39 @@ submitBtn.addEventListener("click", () =>{
             console.log(result)
             if(result.id === "m"){
                 if(mornBlock[0].innerText.includes("OPEN")){
-                    mornBlock[0].innerText = mornBlock[0].innerText.replace("OPEN", `${result.json.name},\n(${result.json.vicinity})`)
+                    mornBlock[0].innerHTML = mornBlock[0].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                     return;
                 }
                 else if(mornBlock[1].innerText.includes("OPEN") && !mornBlock[0].innerText.includes(result.json.name)){
-                    mornBlock[1].innerText = mornBlock[1].innerText.replace("OPEN", `${result.json.name},\n(${result.json.vicinity})`)
+                    mornBlock[1].innerHTML = mornBlock[1].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                     return;
                 }
                 else return;
             }
             else if(result.id === "a"){
                     if(aftBlock[0].innerText.includes("OPEN")){
-                        aftBlock[0].innerText = aftBlock[0].innerText.replace("OPEN", `${result.json.name},\n(${result.json.vicinity})`)
+                        aftBlock[0].innerHTML = aftBlock[0].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                         return;
                     }
                     else if(aftBlock[1].innerText.includes("OPEN") && !aftBlock[0].innerText.includes(result.json.name)){
-                        aftBlock[1].innerText = aftBlock[1].innerText.replace("OPEN", `${result.json.name},\n(${result.json.vicinity})`)
+                        aftBlock[1].innerHTML = aftBlock[1].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                         return;
                     }
                     else return;
                 }
             else if(result.id === "e"){
                     if(evenBlock[0].innerText.includes("OPEN")){
-                        evenBlock[0].innerText = evenBlock[0].innerText.replace("OPEN", `${result.json.name},\n(${result.json.vicinity})`)
+                        evenBlock[0].innerHTML = evenBlock[0].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                         return;
                     }
                     else if(evenBlock[1].innerText.includes("OPEN") && !evenBlock[0].innerText.includes(result.json.name)){
-                        evenBlock[1].innerText = evenBlock[1].innerText.replace("OPEN", `${result.json.name},\n(${result.json.vicinity})`)
+                        evenBlock[1].innerHTML = evenBlock[1].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                         return;
                     }
                     else return;
         }
             else {
-                lateBlock.innerText = lateBlock.innerText.replace("OPEN", `${result.json.name},\n(${result.json.vicinity})`)
+                lateBlock.innerHTML = lateBlock.innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                         return;
             };
         }), setTimeout(() => schedule.style.display = "flex", 2500))
