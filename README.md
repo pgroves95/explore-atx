@@ -3,11 +3,11 @@
 This is a frontend app built with Vanilla JS, HTML, and Skeleton CSS.
 It provides users with list of options for their one day vacation time in Austin, TX.
 
-# Screenshot
+# Screenshot of Main Page
 
 ![Screenshot from 2021-04-15 16-03-15](https://user-images.githubusercontent.com/78520099/114953870-9ae37880-9e16-11eb-909b-e38a02c8989f.png)
 
-# Script
+# Main Page/Script
 
 The main page is linked to the script file, which looks at each checkbox provided, and if it is
 checked, passes the corresponding API call (Google Maps Place API) into a Promise.all() method with
@@ -27,7 +27,8 @@ The conditional logic is a serious limitation in that if three checkboxes in one
 are all checked, the last option (in this case culture) will always be omitted. Potentially in the future,
 I could randomize the results list order to provide a less predictable outcome for this limitation.
 
-Another limitation comes from the API itself, which does not provide an easy way to provide a google maps link that has the name of the the place as the result. What the user sees are cardinal directions in place of the name.
+Another limitation comes from the API itself, which does not provide an easy way to provide a google maps link that has the name of the the place as the result. What the user sees are cardinal directions in place of the name. This is a confusing issue which could be rectified by utilizing other
+google maps APIs that are more sophisticated than the Places API.
 
 # Auxiliary Pages
 
