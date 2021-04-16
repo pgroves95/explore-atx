@@ -70,39 +70,39 @@ submitBtn.addEventListener("click", () =>{
             console.log(result)
             if(result.id === "m"){
                 if(mornBlock[0].innerText.includes("OPEN")){
-                    mornBlock[0].innerHTML = mornBlock[0].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/dir//${result.ll.lat},${result.ll.lng}">Directions</a>`)
+                    mornBlock[0].innerHTML = mornBlock[0].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                     return;
                 }
                 else if(mornBlock[1].innerText.includes("OPEN") && !mornBlock[0].innerText.includes(result.json.name)){
-                    mornBlock[1].innerHTML = mornBlock[1].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/dir//${result.ll.lat},${result.ll.lng}">Directions</a>`)
+                    mornBlock[1].innerHTML = mornBlock[1].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                     return;
                 }
                 else return;
             }
             else if(result.id === "a"){
                     if(aftBlock[0].innerText.includes("OPEN")){
-                        aftBlock[0].innerHTML = aftBlock[0].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/dir//${result.ll.lat},${result.ll.lng}">Directions</a>`)
+                        aftBlock[0].innerHTML = aftBlock[0].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                         return;
                     }
                     else if(aftBlock[1].innerText.includes("OPEN") && !aftBlock[0].innerText.includes(result.json.name)){
-                        aftBlock[1].innerHTML = aftBlock[1].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/dir//${result.ll.lat},${result.ll.lng}">Directions</a>`)
+                        aftBlock[1].innerHTML = aftBlock[1].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                         return;
                     }
                     else return;
                 }
             else if(result.id === "e"){
                     if(evenBlock[0].innerText.includes("OPEN")){
-                        evenBlock[0].innerHTML = evenBlock[0].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/dir//${result.ll.lat},${result.ll.lng}">Directions</a>`)
+                        evenBlock[0].innerHTML = evenBlock[0].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                         return;
                     }
                     else if(evenBlock[1].innerText.includes("OPEN") && !evenBlock[0].innerText.includes(result.json.name)){
-                        evenBlock[1].innerHTML = evenBlock[1].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/dir//${result.ll.lat},${result.ll.lng}">Directions</a>`)
+                        evenBlock[1].innerHTML = evenBlock[1].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                         return;
                     }
                     else return;
         }
             else {
-                lateBlock.innerHTML = lateBlock.innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/dir//${result.ll.lat},${result.ll.lng}">Directions</a>`)
+                lateBlock.innerHTML = lateBlock.innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
                         return;
             };
         }), setTimeout(() => schedule.style.display = "flex", 2500))
