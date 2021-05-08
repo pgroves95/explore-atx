@@ -33,8 +33,3 @@ google maps APIs that are more sophisticated than the Places API.
 # Screenshot of Results
 
 ![Screenshot from 2021-04-15 19-26-14](https://user-images.githubusercontent.com/78520099/114958642-a9369200-9e20-11eb-9c08-108958997a5d.png)
-
-# Auxiliary Pages
-
-The 'about' page contains information about the project and myself. The 'more' page provide a few suggestions beyond the geo-rectangle parameter of the main page, with links to
-google maps.
