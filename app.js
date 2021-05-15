@@ -67,7 +67,6 @@ submitBtn.addEventListener("click", () =>{
     })
     Promise.all(placeResults)
         .then(results => results.forEach( result => {
-            console.log(result)
             if(result.id === "m"){
                 if(mornBlock[0].innerText.includes("OPEN")){
                     mornBlock[0].innerHTML = mornBlock[0].innerText.replace("OPEN", `${result.json.name},<br><a href="https://google.com/maps/place/${result.ll.lat},${result.ll.lng}">Directions</a>`)
